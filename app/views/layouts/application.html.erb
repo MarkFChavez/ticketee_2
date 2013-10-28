@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ticketee2</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if notice %>
+	<h3> <%= notice %> </h3>
+<% end %>
+
+<% if alert %>
+	<h3> <%= alert %> </h3>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>
