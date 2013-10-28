@@ -8,6 +8,14 @@
 </head>
 <body>
 
+<% if notice %>
+	<h3> <%= notice %> </h3>
+<% end %>
+
+<% if alert %>
+	<h3> <%= alert %> </h3>
+<% end %>
+
 <%= yield %>
 
 </body>
