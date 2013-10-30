@@ -1,6 +1,6 @@
 # Ticketee Application
 
-** Features **
+**Features**
 
 + User can create their projects
 + User can create tickets for a particular project
