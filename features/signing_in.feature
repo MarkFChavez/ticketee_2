@@ -4,7 +4,9 @@ Feature: User sign in
 	I should sign in
 
 	Background:
-		Given I have an account with email "user@example.com" and password "12345678"
+		Given I have an account:
+			| email			| password		|
+			| user@example.com	| 12345678		|
 		And I am on the homepage
 
 	Scenario: Signing in with valid credentials

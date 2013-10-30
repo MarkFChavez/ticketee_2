@@ -22,7 +22,9 @@ Feature: User sign up
 		Then I should see "error prohibited"
 
 	Scenario: Registering with an already used email
-		And I have an account with email "user@example.com" and password "12345678"
+		And I have an account:
+			| email			| password		|
+			| user@example.com	| 12345678		|
 		When I fill in "Email" with "user@example.com"
 		And I fill in "Password" with "markchavezpassword"
 		And I fill in "Password confirmation" with "markchavezpassword"

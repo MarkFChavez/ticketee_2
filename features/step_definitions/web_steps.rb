@@ -1,7 +1,9 @@
 #STEPS
 
-Given /^I have an account with email "(.*?)" and password "(.*?)"$/ do |email, pass|
-	@user = FactoryGirl.create(:user, email: email, password: pass)
+Given /^I have an account:$/ do |table|
+	table.hashes.each do |attributes|
+		@user = FactoryGirl.create(:user, attributes)
+	end
 end
 
 Given /^I am on the homepage$/ do
