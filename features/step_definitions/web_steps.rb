@@ -6,6 +6,12 @@ Given /^I have an account:$/ do |table|
 	end
 end
 
+Given /^I have a project:$/ do |table|
+	table.hashes.each do |attributes|
+		@project = FactoryGirl.create(:project, attributes)
+	end
+end
+
 Given /^I am on the homepage$/ do
 	visit root_path
 end
