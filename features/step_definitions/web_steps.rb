@@ -36,3 +36,7 @@ Then /^I should be on "(.*?)" page$/ do |project_name|
 	project = @user.projects.find_by_name(project_name)
 	current_path.should == project_path(project)
 end
+
+Then /^I must be on the login page$/ do
+	current_path.should == new_user_session_path
+end

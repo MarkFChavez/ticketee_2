@@ -20,3 +20,10 @@ Feature: User sign in
 		And I fill in "Password" with "wrongpassword"
 		And I follow "Sign in"
 		Then I should see "Invalid email or password"
+
+	Scenario: Logging out of the application
+		When I fill in "Email" with "user@example.com"
+		And I fill in "Password" with "12345678"
+		And I follow "Sign in"
+		And I go to "Logout"
+		Then I must be on the login page

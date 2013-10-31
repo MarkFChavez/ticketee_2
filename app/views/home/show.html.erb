@@ -1,4 +1,4 @@
-<h1> Welcome <%= current_user.email %> </h1>
+<h1> Welcome <%= current_user.email %> <small> <%= link_to "Logout", destroy_user_session_path, method: :delete %> </small> </h1>
 
 <div>
 	<%= link_to "New Project", new_project_path %>
