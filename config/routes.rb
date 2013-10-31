@@ -4,6 +4,8 @@ Ticketee2::Application.routes.draw do
 
   root to: "home#index"
 
+  resources :projects
+
   get 'home/show'
 
   # The priority is based upon order of creation:

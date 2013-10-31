@@ -6,5 +6,6 @@ class HomeController < ApplicationController
   end
 
   def show
+	@projects = current_user.projects
   end
 end

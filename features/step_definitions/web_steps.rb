@@ -1,7 +1,15 @@
 #STEPS
 
-Given /^I have an account with email "(.*?)" and password "(.*?)"$/ do |email, pass|
-	@user = FactoryGirl.create(:user, email: email, password: pass)
+Given /^I have an account:$/ do |table|
+	table.hashes.each do |attributes|
+		@user = FactoryGirl.create(:user, attributes)
+	end
+end
+
+Given /^I have a project:$/ do |table|
+	table.hashes.each do |attributes|
+		@project = FactoryGirl.create(:project, attributes.merge(user: @user))
+	end
 end
 
 Given /^I am on the homepage$/ do
@@ -22,4 +30,13 @@ end
 
 Then /^I should see "(.*?)"$/ do |text|
 	page.should have_content(text)
+end
+
+Then /^I should be on "(.*?)" page$/ do |project_name|
+	project = @user.projects.find_by_name(project_name)
+	current_path.should == project_path(project)
+end
+
+Then /^I must be on the login page$/ do
+	current_path.should == new_user_session_path
 end
