@@ -3,3 +3,13 @@
 <div>
 	<%= link_to "New Project", new_project_path %>
 </div>
+
+<div>
+	<h4> Projects List </h4>
+
+	<ul>
+	<% @projects.each do |p| %>
+		<li> <%= link_to p.name, p %> </li>
+	<% end %>
+	</ul>
+</div>

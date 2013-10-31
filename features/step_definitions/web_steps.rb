@@ -8,7 +8,7 @@ end
 
 Given /^I have a project:$/ do |table|
 	table.hashes.each do |attributes|
-		@project = FactoryGirl.create(:project, attributes)
+		@project = FactoryGirl.create(:project, attributes.merge(user: @user))
 	end
 end
 
@@ -30,4 +30,9 @@ end
 
 Then /^I should see "(.*?)"$/ do |text|
 	page.should have_content(text)
+end
+
+Then /^I should be on "(.*?)" page$/ do |project_name|
+	project = @user.projects.find_by_name(project_name)
+	current_path.should == project_path(project)
 end

@@ -6,6 +6,10 @@ class ProjectsController < ApplicationController
 		@project = Project.new
 	end
 
+	def show
+		@project = current_user.projects.find(params[:id])
+	end
+
 	def create
 		@project = current_user.projects.build(params[:project])
 
