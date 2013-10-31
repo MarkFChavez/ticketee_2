@@ -1,5 +1,6 @@
 <h1> You are viewing project <%= @project.name %> </h1>
 
 <div>
-	<%= link_to "Edit project", edit_project_path(@project) %>
+	<%= link_to "Edit project", edit_project_path(@project) %> 
+	<%= link_to "Remove project", @project, method: :delete, confirm: "Are you sure you want to delete?" %>
 </div>

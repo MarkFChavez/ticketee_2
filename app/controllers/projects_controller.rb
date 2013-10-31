@@ -32,5 +32,12 @@ class ProjectsController < ApplicationController
 		else
 			render :edit
 		end
+	end 
+
+	def destroy
+		@project = current_user.projects.find(params[:id])
+		@project.destroy
+
+		redirect_to home_show_path, notice: "Project removed successfully"
 	end
 end
